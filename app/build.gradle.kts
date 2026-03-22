@@ -1,6 +1,9 @@
+import org.jetbrains.dokka.gradle.DokkaTask
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.kotlin.dokka)
 }
 
 android {
@@ -48,6 +51,7 @@ dependencies {
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
+    implementation(libs.androidx.navigation.compose)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -55,4 +59,30 @@ dependencies {
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
+    implementation(libs.androidx.core.splashscreen)
+    implementation("com.google.code.gson:gson:2.13.2")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.10.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.2")
+    implementation("com.google.android.material:material:1.13.0")
+}
+
+tasks.withType<DokkaTask>().configureEach {
+    // Definim la sortida en una carpeta que vegis clarament
+    outputDirectory.set(file("${projectDir}/docs/javadoc"))
+
+    dokkaSourceSets {
+        // En lloc de configurar per nom (que falla), configurem el set de "main" manualment
+        register("main") {
+            // Ruta directa a la teva carpeta de codi
+            sourceRoots.from(file("src/main/java"))
+
+            // Si tens fitxers a src/main/kotlin, afegeix aquesta línia també:
+            // sourceRoots.from(file("src/main/kotlin"))
+
+            // Configuració bàsica per evitar errors de contenidor
+            includeNonPublic.set(false)
+            skipEmptyPackages.set(false)
+            reportUndocumented.set(true)
+        }
+    }
 }

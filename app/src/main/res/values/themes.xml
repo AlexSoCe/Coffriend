@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.Coffriend" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Theme.Coffriend.App" parent="Theme.Material3.DayNight.NoActionBar">
+    </style>
+
+    <style name="Theme.Coffriend" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">#4E342E</item>
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher</item>
+        <item name="windowSplashScreenAnimationDuration">200</item>
+
+        <item name="postSplashScreenTheme">@style/Theme.Coffriend.App</item>
+    </style>
+
 </resources>
