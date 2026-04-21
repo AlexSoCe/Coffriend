@@ -46,6 +46,7 @@ fun CoffriendTheme(
     if (!view.isInEditMode) {
         SideEffect {
             val window = (view.context as Activity).window
+            // WindowCompat ajuda a gestionar els colors de forma moderna
             val insetsController = WindowCompat.getInsetsController(window, view)
             // Ajustem el color de la barra d'estat per a que coincideixi amb el fons de l'app
             window.statusBarColor = colorScheme.background.toArgb()

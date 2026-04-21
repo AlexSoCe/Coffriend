@@ -12,5 +12,7 @@ data class IOUiState(
     /** Marca l'èxit de l'operació.
      * S'actualitza normalment després de rebre la resposta del [ServerRequests].
      */
-    var goodResult:Boolean=true
+    var goodResult:Boolean=true,
+
+    val result: String = ""
 )

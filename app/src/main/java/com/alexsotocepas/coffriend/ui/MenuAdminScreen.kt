@@ -46,6 +46,7 @@ import com.alexsotocepas.coffriend.ui.theme.button_light_color
 fun MenuAdminScreen(
     modifier: Modifier = Modifier,
     navigate: ()->Unit={},
+    profileNavigate: () -> Unit = {},
     viewModel:MenuAdminViewModel=viewModel()
 ){
     Column(
@@ -64,7 +65,7 @@ fun MenuAdminScreen(
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
-                text = "  Benvingut, ${viewModel.currentUser?.username ?:"Usuari"}",
+                text = "  Benvingut, ${viewModel.currentUser?.nom ?:"Usuari"}",
                 fontSize = 18.sp,
                 color = Color.Black
             )
@@ -125,7 +126,7 @@ fun MenuAdminScreen(
                 Text("⚙\uFE0F", fontSize = 48.sp)
             }
             Button(
-                onClick = {},
+                onClick = {profileNavigate()},
                 contentPadding = PaddingValues(horizontal = 0.dp, vertical = 0.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = button_light_color),
                 modifier = Modifier.height(60.dp)

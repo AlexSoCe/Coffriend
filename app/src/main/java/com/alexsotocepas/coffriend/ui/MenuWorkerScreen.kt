@@ -47,6 +47,7 @@ import com.alexsotocepas.coffriend.ui.theme.button_light_color
 fun MenuWorkerScreen(
     modifier: Modifier = Modifier,
     navigate: ()->Unit={},
+    profileNavigate: () -> Unit = {},
     viewModel:MenuWorkerViewModel=viewModel()
 ) {
     Column(
@@ -65,14 +66,14 @@ fun MenuWorkerScreen(
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
-                text = "  Benvingut, ${viewModel.currentUser?.username ?: "Usuari"}",
+                text = "  Benvingut, ${viewModel.currentUser?.nom ?: "Usuari"}",
                 fontSize = 18.sp,
                 color = Color.Black
             )
 
             Button(
                 onClick = {
-                    viewModel.logout() {
+                    viewModel.logout {
                         navigate()
                     }
                 },
@@ -214,7 +215,7 @@ fun MenuWorkerScreen(
                 Text("\uD83D\uDCCB", fontSize = 48.sp)
             }
             Button(
-                onClick = {},
+                onClick = {profileNavigate()},
                 contentPadding = PaddingValues(horizontal = 0.dp, vertical = 0.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = button_light_color),
                 modifier = Modifier.height(60.dp)

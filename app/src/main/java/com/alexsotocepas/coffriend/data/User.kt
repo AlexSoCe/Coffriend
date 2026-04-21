@@ -5,13 +5,22 @@ package com.alexsotocepas.coffriend.data
  * Aquesta [data class] emmagatzema el perfil de l'usuari i el seu nivell de permisos (rol).
  * La informació es manté de forma global mitjançant un objecte de companyia ([companion object])
  * per facilitar l'accés des de qualsevol punt de l'arquitectura.
- * @property username El nom d'usuari únic que identifica el compte.
- * @property role El tipus d'usuari que determina els permisos d'accés ("user", "worker", "admin").
- * Per defecte s'assigna "user".
+ * @property id Identificador únic de l'usuari a la base de dades.
+ * @property nom El nom de l'usuari.
+ * @property email Correu electrònic utilitzat com a credencial principal d'accés.
+ * @property rol El nivell de permisos que determina la navegació ("client", "treballador", "admin").
+ * @property nivell Grau d'experiència de l'usuari dins del sistema de gamificació.
+ * @property punts Quantitat de punts acumulats per l'usuari.
+ * @property idBotiga Identificador de la botiga física vinculada (principalment per a treballadors).
  */
 data class User (
-    val username:String,
-    val role: String = "user" // "user", "worker", "admin"
+    val id: Int,
+    val nom: String,
+    val email: String,
+    val rol: String = "client",
+    val nivell: Int? = 0,
+    val punts: Int? = 0,
+    val idBotiga: Int? = null
 ) {
     /**
      * Membres estàtics per a la gestió global de la sessió de l'usuari.

@@ -22,6 +22,8 @@ import com.alexsotocepas.coffriend.ui.LoginScreen
 import com.alexsotocepas.coffriend.ui.MenuAdminScreen
 import com.alexsotocepas.coffriend.ui.MenuUserScreen
 import com.alexsotocepas.coffriend.ui.MenuWorkerScreen
+import com.alexsotocepas.coffriend.ui.ProfileUserScreen
+import com.alexsotocepas.coffriend.ui.RegistrationScreen
 import com.alexsotocepas.coffriend.ui.theme.background_dark_color
 import com.alexsotocepas.coffriend.ui.theme.background_light_color
 
@@ -32,14 +34,19 @@ import com.alexsotocepas.coffriend.ui.theme.background_light_color
 enum class MainScreen(val title: String) {
     /** Pantalla d'accés i autenticació. */
     Login(title = "Login"),
+    /** Pantalla de registre d'usuari nou. */
+    RegistreUsuari(title = "RegistreUsuari"),
     /** Pantalla principal del menú (dinàmica segons el rol). */
-    Menu(title = "Menu")
+    Menu(title = "Menu"),
+    /** Pantalla de perfil de l'usuari autenticat. */
+    Profile(title = "Profile")
+
 }
 
 /**
  * Composable principal que gestiona el graf de navegació (NavHost) de l'aplicació.
  * Aquesta funció coordina el canvi entre pantalles i aplica la lògica de seguretat
- * per mostrar el menú corresponent segons el rol de l'usuari ([User.role]).
+ * per mostrar el menú corresponent segons el rol de l'usuari ([User.rol]).
  * @param navController El controlador de navegació. Es crea un per defecte si no se'n passa cap.
  */
 @Preview
@@ -50,32 +57,53 @@ fun Mainview(navController: NavHostController = rememberNavController()) {
         startDestination = MainScreen.Login.name,
         modifier = Modifier.fillMaxSize().background(background_dark_color)
     ) {
+
         // Definició de la ruta de Login
         composable(route = MainScreen.Login.name){
             LoginScreen(
-                navigate = {navController.navigate(MainScreen.Menu.name){   // Netegem la pila per evitar que l'usuari torni enrere al Login amb el botó físic
-                    popUpTo(navController.graph.startDestinationId) { inclusive = true }
-                    launchSingleTop = true
-                }
+                navigate = {
+                    navController.navigate(MainScreen.Menu.name){   // Netegem la pila per evitar que l'usuari torni enrere al Login amb el botó físic
+                        popUpTo(navController.graph.startDestinationId) { inclusive = true }
+                        launchSingleTop = true
+                    }
+                },
+                registrationNavigate = {
+                    navController.navigate(MainScreen.RegistreUsuari.name)
                 },
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(18.dp).clip(MaterialTheme.shapes.medium).background(background_light_color)
             )
         }
+
+        // Definició de la ruta de Registre
+        composable(route = MainScreen.RegistreUsuari.name) {
+            RegistrationScreen(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(18.dp)
+                    .clip(MaterialTheme.shapes.medium)
+                    .background(background_light_color),
+                onBack = {
+                    navController.popBackStack() // Torna a la pantalla anterior (Login)
+                }
+            )
+        }
+
         // Definició de la ruta del Menú amb lògica de rols
         composable(route = MainScreen.Menu.name) {
             val context = LocalContext.current
             val user = User.current
             // Decidim quina pantalla mostrar basant-nos en el rol de l'usuari autenticat
-            when (user?.role) {
+            when (user?.rol) {
                 "admin" -> MenuAdminScreen(
                     modifier = Modifier.fillMaxHeight(),
                     navigate = {
                         navController.navigate(MainScreen.Login.name) {
                             popUpTo(MainScreen.Menu.name) { inclusive = true }
                         }
-                    }
+                    },
+                    profileNavigate = { navController.navigate(route = MainScreen.Profile.name) }
                 )
                 "worker" -> MenuWorkerScreen(
                     modifier = Modifier.fillMaxHeight(),
@@ -83,7 +111,8 @@ fun Mainview(navController: NavHostController = rememberNavController()) {
                         navController.navigate(MainScreen.Login.name) {
                             popUpTo(MainScreen.Menu.name) { inclusive = true }
                         }
-                    }
+                    },
+                    profileNavigate = { navController.navigate(route = MainScreen.Profile.name) }
                 )
                 // Rol per defecte ("user") o qualsevol altre cas no especificat
                 else -> MenuUserScreen(
@@ -92,9 +121,22 @@ fun Mainview(navController: NavHostController = rememberNavController()) {
                         navController.navigate(MainScreen.Login.name) {
                             popUpTo(MainScreen.Menu.name) { inclusive = true }
                         }
-                    }
+                    },
+                    profileNavigate = { navController.navigate(route = MainScreen.Profile.name) }
                 )
             }
+        }
+
+        // Definició de la ruta del perfil d'usuari
+        composable(route = MainScreen.Profile.name) {
+            ProfileUserScreen(
+                onDeleted = {
+                    navController.navigate("login") { popUpTo(0) }
+                },
+                onBack = {
+                    navController.popBackStack()
+                }
+            )
         }
     }
 }

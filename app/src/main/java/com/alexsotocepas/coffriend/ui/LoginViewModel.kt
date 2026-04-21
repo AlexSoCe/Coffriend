@@ -42,25 +42,24 @@ class LoginViewModel : IOViewModel() {
      * La funció canvia al context de xarxa (IO) per realitzar la crida al servidor
      * i torna al fil principal (Main) per actualitzar l'estat de la UI i
      * gestionar la navegació en cas d'èxit.
-     * @param username Nom d'usuari introduït a la interfície.
+     * @param email Email d'usuari introduït a la interfície.
      * @param password Contrasenya introduïda a la interfície.
      * @param onSuccess Callback que s'executa si l'autenticació és satisfactòria per navegar al Menú.
      */
-    fun doLogin(username: String, password: String, onSuccess: () -> Unit) {
-        viewModelScope.launch (Dispatchers.IO){
-            withContext(Dispatchers.Main) {
-                setLoginTried(false)
+    fun doLogin(email: String, password: String, onSuccess: () -> Unit) {
+        viewModelScope.launch {
+            setLoginTried(false)
+            setGoodResult(false)
+
+            val result = withContext(Dispatchers.IO) {
+                ServerRequests.login(email, password)
             }
 
-            val result = ServerRequests.login(username, password)
+            setGoodResult(result)
+            setLoginTried(true)
 
-            withContext(Dispatchers.Main) {
-                setGoodResult(result)
-                setLoginTried(true)
-
-                if (result) {
-                    onSuccess()
-                }
+            if (result) {
+                onSuccess()
             }
         }
     }

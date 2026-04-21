@@ -29,8 +29,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.alexsotocepas.coffriend.communications.ServerRequests
-import com.alexsotocepas.coffriend.data.User
 import com.alexsotocepas.coffriend.ui.theme.CoffriendTheme
 import com.alexsotocepas.coffriend.ui.theme.background_light_color
 import com.alexsotocepas.coffriend.ui.theme.button_dark_color
@@ -50,6 +48,7 @@ import com.alexsotocepas.coffriend.ui.theme.button_light_color
 fun MenuUserScreen(
     modifier: Modifier = Modifier,
     navigate: ()->Unit={},
+    profileNavigate: () -> Unit = {},
     viewModel:MenuUserViewModel=viewModel()
 ){
     Column(
@@ -68,14 +67,14 @@ fun MenuUserScreen(
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
-                text = "  Benvingut, ${viewModel.currentUser?.username ?:"Usuari"}",
+                text = "  Benvingut, ${viewModel.currentUser?.nom ?:"Usuari"}",
                 fontSize = 18.sp,
                 color = Color.Black
             )
 
             Button(
                 onClick = {
-                    viewModel.logout(){
+                    viewModel.logout{
                         navigate()
                     }
                 },
@@ -182,7 +181,7 @@ fun MenuUserScreen(
                 Text("\uD83D\uDED2", fontSize = 40.sp)
             }
             Button(
-                onClick = {},
+                onClick = {profileNavigate()},
                 contentPadding = PaddingValues(horizontal = 0.dp, vertical = 0.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = button_light_color),
                 modifier = Modifier.height(60.dp)
