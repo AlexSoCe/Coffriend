@@ -35,13 +35,15 @@ import com.alexsotocepas.coffriend.ui.theme.button_dark_color
 import com.alexsotocepas.coffriend.ui.theme.button_light_color
 
 /**
- * Pantalla principal per als usuaris amb el rol de treballador.
- * Aquesta vista permet gestionar el llistat de comandes actives, pendents i finalitzades.
- * Inclou una capçalera amb el nom de l'usuari, un botó de tancament de sessió,
- * un cos central amb scroll per veure les comandes i un menú inferior de navegació.
- * @param modifier Modificador per ajustar el disseny o dimensions de la pantalla.
- * @param navigate Funció de retorn per gestionar la navegació cap al Login en tancar sessió.
- * @param viewModel Instància del ViewModel que gestiona la lògica i dades del treballador.
+ * Pantalla principal per als usuaris amb el rol de treballador (Worker).
+ * Aquesta vista permet gestionar el flux de treball mitjançant el llistat de comandes
+ * actives, pendents i finalitzades. L'interfície inclou una capçalera de benvinguda amb
+ * control de sessió, un cos central amb scroll vertical per a la visualització de
+ * comandes i una barra de navegació inferior per accedir al perfil.
+ * @param modifier Modificador de [Modifier] per ajustar el disseny, espaiat o dimensions de la pantalla.
+ * @param navigate Funció lambda per gestionar la navegació de retorn cap al Login en finalitzar la sessió.
+ * @param profileNavigate Funció lambda que executa la navegació cap a la secció de perfil del treballador.
+ * @param viewModel Instància de [MenuWorkerViewModel] que centralitza la lògica de dades i l'estat de la sessió.
  */
 @Composable
 fun MenuWorkerScreen(
@@ -227,8 +229,9 @@ fun MenuWorkerScreen(
 }
 
 /**
- * Previsualització de la pantalla MenuWorkerScreen per a l'editor de disseny.
- * Aplica el tema CoffriendTheme per mostrar els colors i formes reals.
+ * Previsualització (Preview) de la pantalla [MenuWorkerScreen] per a l'editor de disseny.
+ * Renderitza la interfície aplicant el tema [CoffriendTheme] per mostrar fidelment
+ * la paleta de colors i els estils definits per a l'usuari amb rol de treballador.
  */
 @Preview
 @Composable

@@ -18,6 +18,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.alexsotocepas.coffriend.data.User
+import com.alexsotocepas.coffriend.ui.AdminSettingsScreen
 import com.alexsotocepas.coffriend.ui.LoginScreen
 import com.alexsotocepas.coffriend.ui.MenuAdminScreen
 import com.alexsotocepas.coffriend.ui.MenuUserScreen
@@ -103,7 +104,8 @@ fun Mainview(navController: NavHostController = rememberNavController()) {
                             popUpTo(MainScreen.Menu.name) { inclusive = true }
                         }
                     },
-                    profileNavigate = { navController.navigate(route = MainScreen.Profile.name) }
+                    profileNavigate = { navController.navigate(route = MainScreen.Profile.name) },
+                    onSettingsNavigate = { navController.navigate(route = "admin_settings") }
                 )
                 "worker" -> MenuWorkerScreen(
                     modifier = Modifier.fillMaxHeight(),
@@ -136,6 +138,13 @@ fun Mainview(navController: NavHostController = rememberNavController()) {
                 onBack = {
                     navController.popBackStack()
                 }
+            )
+        }
+
+        // Definició per les settings de l'administrador
+        composable(route = "admin_settings") {
+            AdminSettingsScreen(
+                onBack = { navController.popBackStack() }
             )
         }
     }

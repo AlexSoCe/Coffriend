@@ -2,10 +2,14 @@ package com.alexsotocepas.coffriend.communications
 
 import android.util.Log
 import com.alexsotocepas.coffriend.data.IOUiState
+import com.alexsotocepas.coffriend.data.Insignia
+import com.alexsotocepas.coffriend.data.Product
 import com.alexsotocepas.coffriend.data.User
-import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import java.net.HttpURLConnection
 import java.net.URL
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 /**
  * Controlador de comunicacions encarregat de gestionar les peticions HTTP amb el servidor.
@@ -17,7 +21,9 @@ object CommController {
     private const val BASE_URL = "https://special-barnacle-production.up.railway.app/api"
 
     /** Instància de Gson per a la conversió d'objectes a JSON i viceversa. */
-    private val gson = Gson()
+    private val gson = com.google.gson.GsonBuilder()
+        .serializeNulls()
+        .create()
 
     /** Token de sessió actual obtingut després d'un login correcte.
      * S'utilitza per identificar l'usuari en peticions posteriors.
@@ -66,20 +72,30 @@ object CommController {
      * @return [Boolean] Retorna `true` si el login ha estat acceptat pel servidor i s'ha rebut un token; `false` en cas contrari.
      */
     suspend fun doLogin(email: String, pass: String): Boolean {
-        val response = makePostRequest("/auth/login", mapOf("email" to email, "password" to pass))
+        val peticio = EndPointValues("/auth/login")
+        peticio.addPrimitiveData(email)
+        peticio.addPrimitiveData(pass)
+
+        val response = makePostRequest(peticio.order!!, mapOf("email" to email, "password" to pass))
 
         return if (response != null) {
             try {
-                val map = gson.fromJson(response, Map::class.java)
-                sessionToken = map["token"]?.toString()
+                val loginData = gson.fromJson(response, LoginResponse::class.java)
+                sessionToken = loginData.token
 
-                // Extraiem l'objecte "usuari" que ve dins de la resposta
-                val usuariJson = gson.toJson(map["usuari"])
-                User.current = gson.fromJson(usuariJson, User::class.java)
+                val rawMap = gson.fromJson(response, Map::class.java)
+                val userMap = rawMap["user"] as? Map<*, *>
+                val insigniasJson = gson.toJson(userMap?.get("insignies"))
 
-                sessionToken != null
+                val tipoLista = object : com.google.gson.reflect.TypeToken<List<Insignia>>() {}.type
+                val listaManual: List<Insignia>? = gson.fromJson(insigniasJson, tipoLista)
+
+                User.current = loginData.user.copy(llistaInsignies = loginData.user.llistaInsignies ?: listaManual)
+
+                Log.d("LOGIN_FINAL", "Insignias finales: ${User.current?.llistaInsignies}")
+                true
             } catch (e: Exception) {
-                Log.e("CommController", "Error parsejant login: ${e.message}")
+                Log.e("LOGIN_FINAL", "Error: ${e.message}")
                 false
             }
         } else false
@@ -123,9 +139,40 @@ object CommController {
     }
 
     /**
-     * Realitza una petició DELETE per eliminar un usuari.
-     * @param id L'identificador de l'usuari a eliminar.
-     * @return [Boolean] true si el servidor respon 200/201, false en cas contrari.
+     * Actualitza la informació d'un usuari existent.
+     * @param id L'identificador de l'usuari.
+     * @param user El model d'usuari amb les dades noves (nom, email, pass).
+     * @return L'objecte [User] actualitzat si té èxit, o null si falla.
+     */
+    suspend fun doUpdateUser(id: Int, user: User): User? {
+        return try {
+            val url = URL("$BASE_URL/usuaris/$id")
+            val conn = url.openConnection() as HttpURLConnection
+            conn.requestMethod = "PUT"
+            conn.setRequestProperty("Content-Type", "application/json")
+            conn.setRequestProperty("Authorization", "Bearer $sessionToken")
+            conn.doOutput = true
+
+            val jsonInput = gson.toJson(user)
+            conn.outputStream.use { it.write(jsonInput.toByteArray()) }
+
+            if (conn.responseCode in 200..299) {
+                val responseString = conn.inputStream.bufferedReader().readText()
+                gson.fromJson(responseString, User::class.java)
+            } else {
+                Log.e("UPDATE_DEBUG", "Error servidor: ${conn.responseCode}")
+                null
+            }
+        } catch (e: Exception) {
+            Log.e("UPDATE_DEBUG", "Error: ${e.message}")
+            null
+        }
+    }
+
+    /**
+     * Elimina un usuari del sistema de forma permanent.
+     * @param id Identificador de l'usuari a suprimir.
+     * @return `true` si l'eliminació s'ha realitzat correctament al servidor.
      */
     suspend fun deleteUser(id: Int): Boolean {
         return try {
@@ -140,4 +187,88 @@ object CommController {
             false
         }
     }
+
+    /**
+     * Inicialitza la base de dades del servidor amb dades de prova (Seed).
+     * Aquesta operació només s'ha d'utilitzar en entorns de desenvolupament o demostració.
+     * @return `true` si la càrrega de dades ha estat satisfactòria.
+     */
+    suspend fun doSystemDemoSeed(): Boolean = withContext(Dispatchers.IO) {
+        try {
+            val url = URL("$BASE_URL/system/seed")
+            val conn = url.openConnection() as HttpURLConnection
+            conn.requestMethod = "POST"
+            conn.setRequestProperty("Authorization", "Bearer $sessionToken")
+            val code = conn.responseCode
+            println("DEBUG_SEED: Código de respuesta $code")
+            if (code !in 200..299) {
+                val errorMsg = conn.errorStream?.bufferedReader()?.readText()
+                println("DEBUG_SEED: Error del servidor: $errorMsg")
+            }
+            conn.responseCode in 200..299
+        } catch (e: Exception) {
+            println("DEBUG_SEED: Excepción: ${e.message}")
+            e.printStackTrace()
+            false
+        }
+    }
+
+    /**
+     * Reinicia la base de dades de demostració del servidor.
+     * Elimina les dades temporals per retornar el sistema a un estat net.
+     * @return `true` si el reinici s'ha completat.
+     */
+    suspend fun doSystemResetDemo(): Boolean = withContext(Dispatchers.IO){
+        try {
+            val url = URL("$BASE_URL/system/resetDemo")
+            val conn = url.openConnection() as HttpURLConnection
+            conn.requestMethod = "DELETE"
+            conn.setRequestProperty("Authorization", "Bearer $sessionToken")
+            val code = conn.responseCode
+            println("DEBUG_SEED: Código de respuesta $code")
+            if (code !in 200..299) {
+                val errorMsg = conn.errorStream?.bufferedReader()?.readText()
+                println("DEBUG_SEED: Error del servidor: $errorMsg")
+            }
+            conn.responseCode in 200..299
+        } catch (e: Exception) {
+            println("DEBUG_SEED: Excepción: ${e.message}")
+            e.printStackTrace()
+            false
+        }
+    }
+
+    /**
+     * Obté el llistat complet de productes disponibles al catàleg.
+     * Realitza una petició GET i deserialitza la llista de [Product] mitjançant un [TypeToken].
+     * @return Una llista d'objectes [Product]. Si hi ha un error, retorna una llista buida.
+     */
+    suspend fun doGetProducts(): List<Product> {
+        return try {
+            val url = URL("$BASE_URL/productes")
+            val conn = url.openConnection() as HttpURLConnection
+            conn.requestMethod = "GET"
+            conn.setRequestProperty("Authorization", "Bearer $sessionToken")
+
+            if (conn.responseCode in 200..299) {
+                val json = conn.inputStream.bufferedReader().readText()
+                val itemType = object : TypeToken<List<Product>>() {}.type
+                gson.fromJson(json, itemType)
+            } else {
+                emptyList()
+            }
+        } catch (e: Exception) {
+            emptyList()
+        }
+    }
 }
+
+/**
+ * Estructura de dades per a la resposta del servidor en l'inici de sessió.
+ * @property token Cadena JWT d'autorització.
+ * @property user Objecte [User] amb la informació del perfil completat.
+ */
+data class LoginResponse(
+    val token: String,
+    val user: User
+)

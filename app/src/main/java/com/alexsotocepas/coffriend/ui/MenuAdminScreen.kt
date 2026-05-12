@@ -47,6 +47,7 @@ fun MenuAdminScreen(
     modifier: Modifier = Modifier,
     navigate: ()->Unit={},
     profileNavigate: () -> Unit = {},
+    onSettingsNavigate: () -> Unit = {},
     viewModel:MenuAdminViewModel=viewModel()
 ){
     Column(
@@ -118,7 +119,7 @@ fun MenuAdminScreen(
             verticalAlignment = Alignment.CenterVertically
         ) {
             Button(
-                onClick = {},
+                onClick = {onSettingsNavigate()},
                 contentPadding = PaddingValues(horizontal = 0.dp, vertical = 0.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = button_light_color),
                 modifier = Modifier.height(60.dp)

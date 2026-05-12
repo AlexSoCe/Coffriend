@@ -11,22 +11,24 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 /**
- * ViewModel encarregat de gestionar la lògica de la pantalla del menú per a treballadors.
- * Aquesta classe hereta de [IOViewModel] per gestionar estats de connexió i permet
- * l'accés a les dades de l'usuari actual, així com la finalització de la sessió.
+ * ViewModel encarregat de gestionar la lògica de negoci de la pantalla del menú per a treballadors.
+ * Aquesta classe hereta de [IOViewModel] per aprofitar la gestió d'estats de connexió i
+ * s'encarrega de subministrar les dades de l'usuari actual i gestionar el flux de tancament de sessió.
  */
 class MenuWorkerViewModel : IOViewModel() {
     /**
-     * Estat reactiu que emmagatzema les dades de l'usuari que ha iniciat sessió.
-     * Es defineix amb un setter privat per garantir que només el ViewModel pugui modificar-lo.
+     * Estat reactiu de Compose que emmagatzema les dades de l'usuari [User] que ha iniciat sessió.
+     * S'inicialitza amb el valor de [User.current]. El setter és privat per garantir
+     * la integritat de les dades des de la vista.
      */
     var currentUser by mutableStateOf(User.current)
         private set
     /**
-     * Executa el procés de tancament de sessió per al perfil de treballador.
-     * Realitza la petició al servidor en un fil de xarxa (IO) i, un cop completat,
-     * neteja les dades locals i executa el callback a la interfície d'usuari (Main).
-     * @param onSuccess Callback que s'executa quan el tancament de sessió s'ha completat correctament.
+     * Gestiona el procés de tancament de sessió per al perfil de treballador.
+     * L'operació s'executa en una corrutina dins del [Dispatchers.IO] per a la crida
+     * a [ServerRequests.logout]. Posteriorment, es netegen les dades locals mitjançant [User.logout]
+     * i es retorna al fil principal ([Dispatchers.Main]) per executar el callback de navegació.
+     * @param onSuccess Callback que s'executa a la capa de presentació un cop la sessió s'ha tancat correctament.
      */
     fun logout(onSuccess: () -> Unit) {
         viewModelScope.launch (Dispatchers.IO){

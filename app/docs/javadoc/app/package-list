@@ -3,9 +3,13 @@ $dokka.linkExtension:html
 $dokka.location:com.alexsotocepas.coffriend.communications////PointingToDeclaration/app/com.alexsotocepas.coffriend.communications/index.html
 $dokka.location:com.alexsotocepas.coffriend.communications/CommController///PointingToDeclaration/app/com.alexsotocepas.coffriend.communications/-comm-controller/index.html
 $dokka.location:com.alexsotocepas.coffriend.communications/CommController/deleteUser/#kotlin.Int/PointingToDeclaration/app/com.alexsotocepas.coffriend.communications/-comm-controller/delete-user.html
+$dokka.location:com.alexsotocepas.coffriend.communications/CommController/doGetProducts/#/PointingToDeclaration/app/com.alexsotocepas.coffriend.communications/-comm-controller/do-get-products.html
 $dokka.location:com.alexsotocepas.coffriend.communications/CommController/doLogin/#kotlin.String#kotlin.String/PointingToDeclaration/app/com.alexsotocepas.coffriend.communications/-comm-controller/do-login.html
 $dokka.location:com.alexsotocepas.coffriend.communications/CommController/doLogout/#/PointingToDeclaration/app/com.alexsotocepas.coffriend.communications/-comm-controller/do-logout.html
 $dokka.location:com.alexsotocepas.coffriend.communications/CommController/doRegister/#kotlin.String#kotlin.String#kotlin.String/PointingToDeclaration/app/com.alexsotocepas.coffriend.communications/-comm-controller/do-register.html
+$dokka.location:com.alexsotocepas.coffriend.communications/CommController/doSystemDemoSeed/#/PointingToDeclaration/app/com.alexsotocepas.coffriend.communications/-comm-controller/do-system-demo-seed.html
+$dokka.location:com.alexsotocepas.coffriend.communications/CommController/doSystemResetDemo/#/PointingToDeclaration/app/com.alexsotocepas.coffriend.communications/-comm-controller/do-system-reset-demo.html
+$dokka.location:com.alexsotocepas.coffriend.communications/CommController/doUpdateUser/#kotlin.Int#com.alexsotocepas.coffriend.data.User/PointingToDeclaration/app/com.alexsotocepas.coffriend.communications/-comm-controller/do-update-user.html
 $dokka.location:com.alexsotocepas.coffriend.communications/CommController/sessionToken/#/PointingToDeclaration/app/com.alexsotocepas.coffriend.communications/-comm-controller/session-token.html
 $dokka.location:com.alexsotocepas.coffriend.communications/EndPointData///PointingToDeclaration/app/com.alexsotocepas.coffriend.communications/-end-point-data/index.html
 $dokka.location:com.alexsotocepas.coffriend.communications/EndPointData/EndPointData/#/PointingToDeclaration/app/com.alexsotocepas.coffriend.communications/-end-point-data/-end-point-data.html
@@ -16,6 +20,21 @@ $dokka.location:com.alexsotocepas.coffriend.communications/EndPointValues///Poin
 $dokka.location:com.alexsotocepas.coffriend.communications/EndPointValues/EndPointValues/#/PointingToDeclaration/app/com.alexsotocepas.coffriend.communications/-end-point-values/-end-point-values.html
 $dokka.location:com.alexsotocepas.coffriend.communications/EndPointValues/EndPointValues/#kotlin.String?/PointingToDeclaration/app/com.alexsotocepas.coffriend.communications/-end-point-values/-end-point-values.html
 $dokka.location:com.alexsotocepas.coffriend.communications/EndPointValues/order/#/PointingToDeclaration/app/com.alexsotocepas.coffriend.communications/-end-point-values/order.html
+$dokka.location:com.alexsotocepas.coffriend.communications/LoginResponse///PointingToDeclaration/app/com.alexsotocepas.coffriend.communications/-login-response/index.html
+$dokka.location:com.alexsotocepas.coffriend.communications/LoginResponse/LoginResponse/#kotlin.String#com.alexsotocepas.coffriend.data.User/PointingToDeclaration/app/com.alexsotocepas.coffriend.communications/-login-response/-login-response.html
+$dokka.location:com.alexsotocepas.coffriend.communications/LoginResponse/token/#/PointingToDeclaration/app/com.alexsotocepas.coffriend.communications/-login-response/token.html
+$dokka.location:com.alexsotocepas.coffriend.communications/LoginResponse/user/#/PointingToDeclaration/app/com.alexsotocepas.coffriend.communications/-login-response/user.html
+$dokka.location:com.alexsotocepas.coffriend.communications/ReturnValues.ApiResult.Error///PointingToDeclaration/app/com.alexsotocepas.coffriend.communications/-return-values/-api-result/-error/index.html
+$dokka.location:com.alexsotocepas.coffriend.communications/ReturnValues.ApiResult.Error/Error/#kotlin.String/PointingToDeclaration/app/com.alexsotocepas.coffriend.communications/-return-values/-api-result/-error/-error.html
+$dokka.location:com.alexsotocepas.coffriend.communications/ReturnValues.ApiResult.Error/message/#/PointingToDeclaration/app/com.alexsotocepas.coffriend.communications/-return-values/-api-result/-error/message.html
+$dokka.location:com.alexsotocepas.coffriend.communications/ReturnValues.ApiResult.Success///PointingToDeclaration/app/com.alexsotocepas.coffriend.communications/-return-values/-api-result/-success/index.html
+$dokka.location:com.alexsotocepas.coffriend.communications/ReturnValues.ApiResult.Success/Success/#com.alexsotocepas.coffriend.communications.ReturnValues.LoginResponse/PointingToDeclaration/app/com.alexsotocepas.coffriend.communications/-return-values/-api-result/-success/-success.html
+$dokka.location:com.alexsotocepas.coffriend.communications/ReturnValues.ApiResult.Success/data/#/PointingToDeclaration/app/com.alexsotocepas.coffriend.communications/-return-values/-api-result/-success/data.html
+$dokka.location:com.alexsotocepas.coffriend.communications/ReturnValues.ApiResult///PointingToDeclaration/app/com.alexsotocepas.coffriend.communications/-return-values/-api-result/index.html
+$dokka.location:com.alexsotocepas.coffriend.communications/ReturnValues.LoginResponse///PointingToDeclaration/app/com.alexsotocepas.coffriend.communications/-return-values/-login-response/index.html
+$dokka.location:com.alexsotocepas.coffriend.communications/ReturnValues.LoginResponse/LoginResponse/#kotlin.String#com.alexsotocepas.coffriend.data.User/PointingToDeclaration/app/com.alexsotocepas.coffriend.communications/-return-values/-login-response/-login-response.html
+$dokka.location:com.alexsotocepas.coffriend.communications/ReturnValues.LoginResponse/token/#/PointingToDeclaration/app/com.alexsotocepas.coffriend.communications/-return-values/-login-response/token.html
+$dokka.location:com.alexsotocepas.coffriend.communications/ReturnValues.LoginResponse/user/#/PointingToDeclaration/app/com.alexsotocepas.coffriend.communications/-return-values/-login-response/user.html
 $dokka.location:com.alexsotocepas.coffriend.communications/ReturnValues///PointingToDeclaration/app/com.alexsotocepas.coffriend.communications/-return-values/index.html
 $dokka.location:com.alexsotocepas.coffriend.communications/ReturnValues/ReturnValues/#/PointingToDeclaration/app/com.alexsotocepas.coffriend.communications/-return-values/-return-values.html
 $dokka.location:com.alexsotocepas.coffriend.communications/ReturnValues/ReturnValues/#kotlin.Int/PointingToDeclaration/app/com.alexsotocepas.coffriend.communications/-return-values/-return-values.html
@@ -25,14 +44,31 @@ $dokka.location:com.alexsotocepas.coffriend.communications/ServerRequests/delete
 $dokka.location:com.alexsotocepas.coffriend.communications/ServerRequests/login/#kotlin.String#kotlin.String/PointingToDeclaration/app/com.alexsotocepas.coffriend.communications/-server-requests/login.html
 $dokka.location:com.alexsotocepas.coffriend.communications/ServerRequests/logout/#/PointingToDeclaration/app/com.alexsotocepas.coffriend.communications/-server-requests/logout.html
 $dokka.location:com.alexsotocepas.coffriend.communications/ServerRequests/registerUser/#kotlin.String#kotlin.String#kotlin.String/PointingToDeclaration/app/com.alexsotocepas.coffriend.communications/-server-requests/register-user.html
+$dokka.location:com.alexsotocepas.coffriend.communications/ServerRequests/updateEmail/#kotlin.String/PointingToDeclaration/app/com.alexsotocepas.coffriend.communications/-server-requests/update-email.html
 $dokka.location:com.alexsotocepas.coffriend.data////PointingToDeclaration/app/com.alexsotocepas.coffriend.data/index.html
 $dokka.location:com.alexsotocepas.coffriend.data/IOUiState///PointingToDeclaration/app/com.alexsotocepas.coffriend.data/-i-o-ui-state/index.html
 $dokka.location:com.alexsotocepas.coffriend.data/IOUiState/IOUiState/#kotlin.Boolean#kotlin.String/PointingToDeclaration/app/com.alexsotocepas.coffriend.data/-i-o-ui-state/-i-o-ui-state.html
 $dokka.location:com.alexsotocepas.coffriend.data/IOUiState/goodResult/#/PointingToDeclaration/app/com.alexsotocepas.coffriend.data/-i-o-ui-state/good-result.html
 $dokka.location:com.alexsotocepas.coffriend.data/IOUiState/result/#/PointingToDeclaration/app/com.alexsotocepas.coffriend.data/-i-o-ui-state/result.html
+$dokka.location:com.alexsotocepas.coffriend.data/Insignia///PointingToDeclaration/app/com.alexsotocepas.coffriend.data/-insignia/index.html
+$dokka.location:com.alexsotocepas.coffriend.data/Insignia/Insignia/#kotlin.Int?#kotlin.String?#kotlin.String?#kotlin.String?#kotlin.String?/PointingToDeclaration/app/com.alexsotocepas.coffriend.data/-insignia/-insignia.html
+$dokka.location:com.alexsotocepas.coffriend.data/Insignia/dataObtencio/#/PointingToDeclaration/app/com.alexsotocepas.coffriend.data/-insignia/data-obtencio.html
+$dokka.location:com.alexsotocepas.coffriend.data/Insignia/descripcio/#/PointingToDeclaration/app/com.alexsotocepas.coffriend.data/-insignia/descripcio.html
+$dokka.location:com.alexsotocepas.coffriend.data/Insignia/id/#/PointingToDeclaration/app/com.alexsotocepas.coffriend.data/-insignia/id.html
+$dokka.location:com.alexsotocepas.coffriend.data/Insignia/imatgeUrl/#/PointingToDeclaration/app/com.alexsotocepas.coffriend.data/-insignia/imatge-url.html
+$dokka.location:com.alexsotocepas.coffriend.data/Insignia/nom/#/PointingToDeclaration/app/com.alexsotocepas.coffriend.data/-insignia/nom.html
 $dokka.location:com.alexsotocepas.coffriend.data/LoginUiState///PointingToDeclaration/app/com.alexsotocepas.coffriend.data/-login-ui-state/index.html
 $dokka.location:com.alexsotocepas.coffriend.data/LoginUiState/LoginUiState/#kotlin.Boolean/PointingToDeclaration/app/com.alexsotocepas.coffriend.data/-login-ui-state/-login-ui-state.html
 $dokka.location:com.alexsotocepas.coffriend.data/LoginUiState/loginTried/#/PointingToDeclaration/app/com.alexsotocepas.coffriend.data/-login-ui-state/login-tried.html
+$dokka.location:com.alexsotocepas.coffriend.data/Product///PointingToDeclaration/app/com.alexsotocepas.coffriend.data/-product/index.html
+$dokka.location:com.alexsotocepas.coffriend.data/Product/Product/#kotlin.Int#kotlin.String#kotlin.String#kotlin.Double#kotlin.String?#kotlin.Int#kotlin.Int/PointingToDeclaration/app/com.alexsotocepas.coffriend.data/-product/-product.html
+$dokka.location:com.alexsotocepas.coffriend.data/Product/descripcio/#/PointingToDeclaration/app/com.alexsotocepas.coffriend.data/-product/descripcio.html
+$dokka.location:com.alexsotocepas.coffriend.data/Product/id/#/PointingToDeclaration/app/com.alexsotocepas.coffriend.data/-product/id.html
+$dokka.location:com.alexsotocepas.coffriend.data/Product/idBotiga/#/PointingToDeclaration/app/com.alexsotocepas.coffriend.data/-product/id-botiga.html
+$dokka.location:com.alexsotocepas.coffriend.data/Product/imatgeUrl/#/PointingToDeclaration/app/com.alexsotocepas.coffriend.data/-product/imatge-url.html
+$dokka.location:com.alexsotocepas.coffriend.data/Product/nom/#/PointingToDeclaration/app/com.alexsotocepas.coffriend.data/-product/nom.html
+$dokka.location:com.alexsotocepas.coffriend.data/Product/preu/#/PointingToDeclaration/app/com.alexsotocepas.coffriend.data/-product/preu.html
+$dokka.location:com.alexsotocepas.coffriend.data/Product/stock/#/PointingToDeclaration/app/com.alexsotocepas.coffriend.data/-product/stock.html
 $dokka.location:com.alexsotocepas.coffriend.data/RegistrationUiState///PointingToDeclaration/app/com.alexsotocepas.coffriend.data/-registration-ui-state/index.html
 $dokka.location:com.alexsotocepas.coffriend.data/RegistrationUiState/RegistrationUiState/#kotlin.Boolean#kotlin.Boolean#kotlin.Boolean/PointingToDeclaration/app/com.alexsotocepas.coffriend.data/-registration-ui-state/-registration-ui-state.html
 $dokka.location:com.alexsotocepas.coffriend.data/RegistrationUiState/isSuccess/#/PointingToDeclaration/app/com.alexsotocepas.coffriend.data/-registration-ui-state/is-success.html
@@ -42,10 +78,11 @@ $dokka.location:com.alexsotocepas.coffriend.data/User.Companion///PointingToDecl
 $dokka.location:com.alexsotocepas.coffriend.data/User.Companion/current/#/PointingToDeclaration/app/com.alexsotocepas.coffriend.data/-user/-companion/current.html
 $dokka.location:com.alexsotocepas.coffriend.data/User.Companion/logout/#/PointingToDeclaration/app/com.alexsotocepas.coffriend.data/-user/-companion/logout.html
 $dokka.location:com.alexsotocepas.coffriend.data/User///PointingToDeclaration/app/com.alexsotocepas.coffriend.data/-user/index.html
-$dokka.location:com.alexsotocepas.coffriend.data/User/User/#kotlin.Int#kotlin.String#kotlin.String#kotlin.String#kotlin.Int?#kotlin.Int?#kotlin.Int?/PointingToDeclaration/app/com.alexsotocepas.coffriend.data/-user/-user.html
+$dokka.location:com.alexsotocepas.coffriend.data/User/User/#kotlin.Int#kotlin.String#kotlin.String#kotlin.String#kotlin.Int?#kotlin.Int?#kotlin.Int?#kotlin.collections.List[com.alexsotocepas.coffriend.data.Insignia]?/PointingToDeclaration/app/com.alexsotocepas.coffriend.data/-user/-user.html
 $dokka.location:com.alexsotocepas.coffriend.data/User/email/#/PointingToDeclaration/app/com.alexsotocepas.coffriend.data/-user/email.html
 $dokka.location:com.alexsotocepas.coffriend.data/User/id/#/PointingToDeclaration/app/com.alexsotocepas.coffriend.data/-user/id.html
 $dokka.location:com.alexsotocepas.coffriend.data/User/idBotiga/#/PointingToDeclaration/app/com.alexsotocepas.coffriend.data/-user/id-botiga.html
+$dokka.location:com.alexsotocepas.coffriend.data/User/llistaInsignies/#/PointingToDeclaration/app/com.alexsotocepas.coffriend.data/-user/llista-insignies.html
 $dokka.location:com.alexsotocepas.coffriend.data/User/nivell/#/PointingToDeclaration/app/com.alexsotocepas.coffriend.data/-user/nivell.html
 $dokka.location:com.alexsotocepas.coffriend.data/User/nom/#/PointingToDeclaration/app/com.alexsotocepas.coffriend.data/-user/nom.html
 $dokka.location:com.alexsotocepas.coffriend.data/User/punts/#/PointingToDeclaration/app/com.alexsotocepas.coffriend.data/-user/punts.html
@@ -64,16 +101,18 @@ $dokka.location:com.alexsotocepas.coffriend.ui.theme//text_black_color/#/Pointin
 $dokka.location:com.alexsotocepas.coffriend.ui.theme//text_dark_color/#/PointingToDeclaration/app/com.alexsotocepas.coffriend.ui.theme/text_dark_color.html
 $dokka.location:com.alexsotocepas.coffriend.ui.theme//text_light_color/#/PointingToDeclaration/app/com.alexsotocepas.coffriend.ui.theme/text_light_color.html
 $dokka.location:com.alexsotocepas.coffriend.ui////PointingToDeclaration/app/com.alexsotocepas.coffriend.ui/index.html
+$dokka.location:com.alexsotocepas.coffriend.ui//AdminSettingsScreen/#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/app/com.alexsotocepas.coffriend.ui/-admin-settings-screen.html
+$dokka.location:com.alexsotocepas.coffriend.ui//AdminSettingsScreenPreview/#/PointingToDeclaration/app/com.alexsotocepas.coffriend.ui/-admin-settings-screen-preview.html
 $dokka.location:com.alexsotocepas.coffriend.ui//LoginPreview/#/PointingToDeclaration/app/com.alexsotocepas.coffriend.ui/-login-preview.html
 $dokka.location:com.alexsotocepas.coffriend.ui//LoginScreen/#[Error type: Unresolved type for Modifier]#kotlin.Function0[kotlin.Unit]#kotlin.Function0[kotlin.Unit]#com.alexsotocepas.coffriend.ui.LoginViewModel/PointingToDeclaration/app/com.alexsotocepas.coffriend.ui/-login-screen.html
 $dokka.location:com.alexsotocepas.coffriend.ui//MenuAdminPreview/#/PointingToDeclaration/app/com.alexsotocepas.coffriend.ui/-menu-admin-preview.html
-$dokka.location:com.alexsotocepas.coffriend.ui//MenuAdminScreen/#[Error type: Unresolved type for Modifier]#kotlin.Function0[kotlin.Unit]#kotlin.Function0[kotlin.Unit]#com.alexsotocepas.coffriend.ui.MenuAdminViewModel/PointingToDeclaration/app/com.alexsotocepas.coffriend.ui/-menu-admin-screen.html
+$dokka.location:com.alexsotocepas.coffriend.ui//MenuAdminScreen/#[Error type: Unresolved type for Modifier]#kotlin.Function0[kotlin.Unit]#kotlin.Function0[kotlin.Unit]#kotlin.Function0[kotlin.Unit]#com.alexsotocepas.coffriend.ui.MenuAdminViewModel/PointingToDeclaration/app/com.alexsotocepas.coffriend.ui/-menu-admin-screen.html
 $dokka.location:com.alexsotocepas.coffriend.ui//MenuUserPreview/#/PointingToDeclaration/app/com.alexsotocepas.coffriend.ui/-menu-user-preview.html
 $dokka.location:com.alexsotocepas.coffriend.ui//MenuUserScreen/#[Error type: Unresolved type for Modifier]#kotlin.Function0[kotlin.Unit]#kotlin.Function0[kotlin.Unit]#com.alexsotocepas.coffriend.ui.MenuUserViewModel/PointingToDeclaration/app/com.alexsotocepas.coffriend.ui/-menu-user-screen.html
 $dokka.location:com.alexsotocepas.coffriend.ui//MenuWorkerPreview/#/PointingToDeclaration/app/com.alexsotocepas.coffriend.ui/-menu-worker-preview.html
 $dokka.location:com.alexsotocepas.coffriend.ui//MenuWorkerScreen/#[Error type: Unresolved type for Modifier]#kotlin.Function0[kotlin.Unit]#kotlin.Function0[kotlin.Unit]#com.alexsotocepas.coffriend.ui.MenuWorkerViewModel/PointingToDeclaration/app/com.alexsotocepas.coffriend.ui/-menu-worker-screen.html
 $dokka.location:com.alexsotocepas.coffriend.ui//ProfileUserPreview/#/PointingToDeclaration/app/com.alexsotocepas.coffriend.ui/-profile-user-preview.html
-$dokka.location:com.alexsotocepas.coffriend.ui//ProfileUserScreen/#kotlin.Function0[kotlin.Unit]#kotlin.Function0[kotlin.Unit]#com.alexsotocepas.coffriend.ui.ProfileUserViewModel/PointingToDeclaration/app/com.alexsotocepas.coffriend.ui/-profile-user-screen.html
+$dokka.location:com.alexsotocepas.coffriend.ui//ProfileUserScreen/#kotlin.Function0[kotlin.Unit]#kotlin.Function0[kotlin.Unit]#[Error type: Unresolved type for Modifier]#com.alexsotocepas.coffriend.ui.ProfileUserViewModel/PointingToDeclaration/app/com.alexsotocepas.coffriend.ui/-profile-user-screen.html
 $dokka.location:com.alexsotocepas.coffriend.ui//RegistrationPreview/#/PointingToDeclaration/app/com.alexsotocepas.coffriend.ui/-registration-preview.html
 $dokka.location:com.alexsotocepas.coffriend.ui//RegistrationScreen/#[Error type: Unresolved type for Modifier]#kotlin.Function0[kotlin.Unit]#com.alexsotocepas.coffriend.ui.RegistrationViewModel/PointingToDeclaration/app/com.alexsotocepas.coffriend.ui/-registration-screen.html
 $dokka.location:com.alexsotocepas.coffriend.ui/IOViewModel///PointingToDeclaration/app/com.alexsotocepas.coffriend.ui/-i-o-view-model/index.html
@@ -92,7 +131,10 @@ $dokka.location:com.alexsotocepas.coffriend.ui/MenuAdminViewModel/logout/#kotlin
 $dokka.location:com.alexsotocepas.coffriend.ui/MenuUserViewModel///PointingToDeclaration/app/com.alexsotocepas.coffriend.ui/-menu-user-view-model/index.html
 $dokka.location:com.alexsotocepas.coffriend.ui/MenuUserViewModel/MenuUserViewModel/#/PointingToDeclaration/app/com.alexsotocepas.coffriend.ui/-menu-user-view-model/-menu-user-view-model.html
 $dokka.location:com.alexsotocepas.coffriend.ui/MenuUserViewModel/currentUser/#/PointingToDeclaration/app/com.alexsotocepas.coffriend.ui/-menu-user-view-model/current-user.html
+$dokka.location:com.alexsotocepas.coffriend.ui/MenuUserViewModel/isLoading/#/PointingToDeclaration/app/com.alexsotocepas.coffriend.ui/-menu-user-view-model/is-loading.html
+$dokka.location:com.alexsotocepas.coffriend.ui/MenuUserViewModel/loadProducts/#/PointingToDeclaration/app/com.alexsotocepas.coffriend.ui/-menu-user-view-model/load-products.html
 $dokka.location:com.alexsotocepas.coffriend.ui/MenuUserViewModel/logout/#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/app/com.alexsotocepas.coffriend.ui/-menu-user-view-model/logout.html
+$dokka.location:com.alexsotocepas.coffriend.ui/MenuUserViewModel/products/#/PointingToDeclaration/app/com.alexsotocepas.coffriend.ui/-menu-user-view-model/products.html
 $dokka.location:com.alexsotocepas.coffriend.ui/MenuWorkerViewModel///PointingToDeclaration/app/com.alexsotocepas.coffriend.ui/-menu-worker-view-model/index.html
 $dokka.location:com.alexsotocepas.coffriend.ui/MenuWorkerViewModel/MenuWorkerViewModel/#/PointingToDeclaration/app/com.alexsotocepas.coffriend.ui/-menu-worker-view-model/-menu-worker-view-model.html
 $dokka.location:com.alexsotocepas.coffriend.ui/MenuWorkerViewModel/currentUser/#/PointingToDeclaration/app/com.alexsotocepas.coffriend.ui/-menu-worker-view-model/current-user.html
@@ -100,7 +142,9 @@ $dokka.location:com.alexsotocepas.coffriend.ui/MenuWorkerViewModel/logout/#kotli
 $dokka.location:com.alexsotocepas.coffriend.ui/ProfileUserViewModel///PointingToDeclaration/app/com.alexsotocepas.coffriend.ui/-profile-user-view-model/index.html
 $dokka.location:com.alexsotocepas.coffriend.ui/ProfileUserViewModel/ProfileUserViewModel/#/PointingToDeclaration/app/com.alexsotocepas.coffriend.ui/-profile-user-view-model/-profile-user-view-model.html
 $dokka.location:com.alexsotocepas.coffriend.ui/ProfileUserViewModel/deleteAccount/#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/app/com.alexsotocepas.coffriend.ui/-profile-user-view-model/delete-account.html
-$dokka.location:com.alexsotocepas.coffriend.ui/ProfileUserViewModel/deleteSuccess/#/PointingToDeclaration/app/com.alexsotocepas.coffriend.ui/-profile-user-view-model/delete-success.html
+$dokka.location:com.alexsotocepas.coffriend.ui/ProfileUserViewModel/errorMessage/#/PointingToDeclaration/app/com.alexsotocepas.coffriend.ui/-profile-user-view-model/error-message.html
+$dokka.location:com.alexsotocepas.coffriend.ui/ProfileUserViewModel/isSuccess/#/PointingToDeclaration/app/com.alexsotocepas.coffriend.ui/-profile-user-view-model/is-success.html
+$dokka.location:com.alexsotocepas.coffriend.ui/ProfileUserViewModel/updateEmail/#kotlin.String/PointingToDeclaration/app/com.alexsotocepas.coffriend.ui/-profile-user-view-model/update-email.html
 $dokka.location:com.alexsotocepas.coffriend.ui/RegistrationViewModel///PointingToDeclaration/app/com.alexsotocepas.coffriend.ui/-registration-view-model/index.html
 $dokka.location:com.alexsotocepas.coffriend.ui/RegistrationViewModel/RegistrationViewModel/#/PointingToDeclaration/app/com.alexsotocepas.coffriend.ui/-registration-view-model/-registration-view-model.html
 $dokka.location:com.alexsotocepas.coffriend.ui/RegistrationViewModel/doRegistration/#kotlin.String#kotlin.String#kotlin.String/PointingToDeclaration/app/com.alexsotocepas.coffriend.ui/-registration-view-model/do-registration.html

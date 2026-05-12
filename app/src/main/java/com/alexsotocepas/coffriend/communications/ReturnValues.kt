@@ -1,11 +1,13 @@
 package com.alexsotocepas.coffriend.communications
 
+import com.alexsotocepas.coffriend.data.User
+
 /**
  * Representació de la resposta retornada pel servidor després d'una petició.
- * Aquesta classe estén de [EndPointData] per permetre rebre tant un codi d'estat
+ * Aquesta classe estén de [EndPointData] per permetre gestionar tant un codi d'estat
  * numèric com objectes o dades addicionals serialitzades (com missatges d'error
- * o dades de l'usuari).
- * S'utilitza per interpretar el resultat de qualsevol operació de xarxa.
+ * o dades de l'usuari). S'utilitza per interpretar el resultat de les operacions de xarxa
+ * dins de la capa de comunicacions.
  */
 class ReturnValues : EndPointData {
     /**
@@ -28,5 +30,33 @@ class ReturnValues : EndPointData {
      */
     constructor(returnCode: Int) : super() {
         this.returnCode = returnCode
+    }
+
+    /**
+     * Estructura de dades per al mapeig de la resposta d'inici de sessió.
+     * @property token El token d'autenticació (JWT) proporcionat pel servidor per a futures peticions.
+     * @property user L'objecte [User] amb tota la informació del perfil de l'usuari que ha fet login.
+     */
+    data class LoginResponse(
+        val token: String,
+        val user: User
+    )
+
+    /**
+     * Segell de classe (Sealed Class) per representar els possibles resultats d'una crida a l'API.
+     * * Permet una gestió exhaustiva i segura dels estats d'èxit i error.
+     */
+    sealed class ApiResult {
+        /**
+         * Representa un resultat satisfactori de l'operació.
+         * @property data Objecte de tipus [LoginResponse] que conté les dades retornades.
+         */
+        data class Success(val data: LoginResponse) : ApiResult()
+
+        /**
+         * Representa un error en l'operació o la comunicació.
+         * @property message Descripció textual de l'error per ser mostrada o registrada.
+         */
+        data class Error(val message: String) : ApiResult()
     }
 }

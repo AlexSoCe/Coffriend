@@ -14,8 +14,10 @@ import kotlinx.coroutines.sync.withLock
  */
 object ServerRequests {
 
-    /** * Semàfor d'exclusió mútua (Mutex) per garantir que només una operació de xarxa
-     * crítica s'executi a la vegada, assegurant la integritat de les dades del fil (thread-safe).
+    /**
+     * Semàfor d'exclusió mútua (Mutex) per garantir la integritat de les dades.
+     * Assegura que només una operació de xarxa crítica s'executi a la vegada,
+     * evitant conflictes en l'accés al token de sessió o a l'objecte [User.current].
      */
     private val accessMutex = Mutex()
 
@@ -85,9 +87,37 @@ object ServerRequests {
     }
 
     /**
-     * Elimina un usuari del sistema i tanca la sessió local si l'operació té èxit.
+     * Actualitza l'adreça de correu electrònic de l'usuari autenticat.
+     * Comprova primer la validesa de la sessió, crea una còpia de l'usuari actual
+     * i sincronitza el canvi amb el servidor sota el bloqueig de [accessMutex].
+     * @param newEmail La nova adreça de correu que es vol assignar.
+     * @return Un missatge d'error en format [String] si l'operació falla, o `null` si s'ha actualitzat correctament.
+     */
+    suspend fun updateEmail(newEmail: String): String? {
+        val usuariActual = User.current ?: return "Sessió no vàlida"
+        val usuariModificat = usuariActual.copy(email = newEmail)
+
+        return accessMutex.withLock {
+            try {
+                val resultat = CommController.doUpdateUser(usuariActual.id, usuariModificat)
+                if (resultat != null) {
+                    User.current = resultat
+                    null // Operació sense problemes
+                } else {
+                    "Error: El correu ja existeix o dades no vàlides"
+                }
+            } catch (e: Exception){
+                "No s'ha pogut connectar amb el servidor"
+            }
+        }
+    }
+
+    /**
+     * Elimina permanentment el compte de l'usuari del sistema.
+     * Si el servidor confirma l'eliminació, s'executa automàticament [User.logout]
+     * per invalidar la sessió local immediatament.
      * @param id L'identificador únic de l'usuari a eliminar.
-     * @return [Boolean] `true` si l'usuari ha estat eliminat correctament.
+     * @return `true` si l'eliminació s'ha realitzat amb èxit.
      */
     suspend fun deleteUser(id: Int): Boolean {
         Log.d("MUTEX_DEBUG", "Iniciant DELETE amb Mutex...")

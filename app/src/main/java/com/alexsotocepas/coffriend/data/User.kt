@@ -1,17 +1,22 @@
 package com.alexsotocepas.coffriend.data
 
+import com.google.gson.annotations.SerializedName
+
 /**
- * Representació de les dades de l'usuari autenticat a l'aplicació.
- * Aquesta [data class] emmagatzema el perfil de l'usuari i el seu nivell de permisos (rol).
- * La informació es manté de forma global mitjançant un objecte de companyia ([companion object])
- * per facilitar l'accés des de qualsevol punt de l'arquitectura.
+ * Representació de les dades de l'usuari autenticat a l'aplicació Coffriend.
+ * Aquesta [data class] emmagatzema el perfil complet de l'usuari, el seu nivell de permisos (rol)
+ * i el seu progrés dins del sistema de gamificació. La informació es manté de forma global
+ * mitjançant un [companion object] per facilitar l'accés a la sessió des de qualsevol punt
+ * de l'arquitectura (ViewModels, Controllers, etc.).
  * @property id Identificador únic de l'usuari a la base de dades.
- * @property nom El nom de l'usuari.
- * @property email Correu electrònic utilitzat com a credencial principal d'accés.
- * @property rol El nivell de permisos que determina la navegació ("client", "treballador", "admin").
- * @property nivell Grau d'experiència de l'usuari dins del sistema de gamificació.
- * @property punts Quantitat de punts acumulats per l'usuari.
- * @property idBotiga Identificador de la botiga física vinculada (principalment per a treballadors).
+ * @property nom El nom complet o àlies de l'usuari.
+ * @property email Correu electrònic utilitzat com a identificador i credencial d'accés.
+ * @property rol Determina els permisos de navegació i accés ("client", "treballador", "admin").
+ * @property nivell Grau d'experiència assolit per l'usuari en el sistema.
+ * @property punts Quantitat de punts acumulats bescanviables o de rànquing.
+ * @property idBotiga Identificador de la botiga física vinculada (especialment rellevant per a treballadors).
+ * @property llistaInsignies Col·lecció d'objectes [Insignia] que l'usuari ha col·leccionat.
+ * Es mapeja des del camp "insignies" del JSON mitjançant [SerializedName].
  */
 data class User (
     val id: Int,
@@ -20,15 +25,19 @@ data class User (
     val rol: String = "client",
     val nivell: Int? = 0,
     val punts: Int? = 0,
-    val idBotiga: Int? = null
+    val idBotiga: Int? = null,
+    @SerializedName("insignies")
+    val llistaInsignies: List<Insignia>? = null
+
 ) {
     /**
      * Membres estàtics per a la gestió global de la sessió de l'usuari.
      */
     companion object {
         /**
-         * L'instància de l'usuari actualment autenticat en l'aplicació.
-         * Si és `null`, l'aplicació interpreta que no hi ha cap sessió activa.
+         * L'instància de l'usuari [User] actualment autenticat.
+         * Si el seu valor és `null`, es considera que no existeix cap sessió activa
+         * i l'aplicació hauria de redirigir a la pantalla de Login.
          */
         var current: User? = null
 

@@ -86,11 +86,11 @@ fun LoginScreen(
         ) {
             // Logotip de l'aplicació
             Image(
-                painter = painterResource(id = R.drawable.logo), // Cambia 'logo_cafeteria' por tu nombre de archivo
+                painter = painterResource(id = R.drawable.logo),
                 contentDescription = "Logo de Coffriend",
                 modifier = Modifier
-                    .size(150.dp) // Ajusta el tamaño que quieras
-                    .padding(bottom = 24.dp) // Espacio entre el logo y el texto
+                    .size(150.dp)
+                    .padding(bottom = 24.dp)
             )
 
             // Títol de la secció
@@ -146,11 +146,11 @@ fun LoginScreen(
 
             Row(
                 modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(16.dp, Alignment.CenterHorizontally), // Espai de 16dp i centrats
+                horizontalArrangement = Arrangement.spacedBy(16.dp, Alignment.CenterHorizontally),
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Button(
-                    onClick = { registrationNavigate() }, // Cridem a la nova funció de navegació
+                    onClick = { registrationNavigate() },
                     colors = ButtonDefaults.buttonColors(containerColor = button_dark_color)
                 ) {
                     Text("Registrar")

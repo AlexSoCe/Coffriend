@@ -65,7 +65,7 @@
   <div class="breadcrumbs"><a href="../../../index.html">app</a><span class="delimiter">/</span><a href="../index.html">com.alexsotocepas.coffriend.ui</a><span class="delimiter">/</span><span class="current">MenuUserViewModel</span></div>
   <div class="cover ">
     <h1 class="cover"><span>Menu</span><wbr></wbr><span>User</span><wbr></wbr><span>View</span><wbr></wbr><span><span>Model</span></span></h1>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="index.html">MenuUserViewModel</a> : <a href="../-i-o-view-model/index.html">IOViewModel</a></div><p class="paragraph">Gestiona la lògica de negoci per a la pantalla de menú de l'usuari client. Aquesta classe s'encarrega de mantenir l'estat de l'usuari actual i de coordinar les peticions de tancament de sessió mitjançant el servidor.</p></div></div>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="index.html">MenuUserViewModel</a> : <a href="../-i-o-view-model/index.html">IOViewModel</a></div><p class="paragraph">ViewModel encarregat de gestionar la lògica de negoci per a la pantalla de menú de l'usuari client. Aquesta classe manté l'estat de l'usuari actual, gestiona el catàleg de productes i coordina les operacions de tancament de sessió mitjançant comunicacions amb el servidor. Hereta de <a href="../-i-o-view-model/index.html">IOViewModel</a> per al control d'estats de càrrega i connexió.</p></div></div>
   </div>
   <div class="tabbedcontent">
     <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
@@ -101,7 +101,37 @@
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">var </span><a href="current-user.html">currentUser</a><span class="token operator">: </span><span data-unresolved-link="/&amp;lt;Error class: unknown class&amp;gt;///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span></div><div class="brief "><p class="paragraph">Estat reactiu que conté la informació de l'usuari autenticat actualment. Utilitza un setter privat per evitar modificacions externes fora d'aquesta classe.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">var </span><a href="current-user.html">currentUser</a><span class="token operator">: </span><span data-unresolved-link="/&amp;lt;Error class: unknown class&amp;gt;///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span></div><div class="brief "><p class="paragraph">Estat reactiu que conté la informació de l'usuari <a href="../../com.alexsotocepas.coffriend.data/-user/index.html">User</a> autenticat actualment. S'utilitza un setter privat per garantir que la informació del perfil només pugui ser modificada des d'aquest ViewModel.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1328030613%2FProperties%2F1745091852" anchor-label="isLoading" id="1328030613%2FProperties%2F1745091852" data-filterable-set=":app:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/main" data-filterable-set=":app:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-loading.html"><span>is</span><wbr></wbr><span><span>Loading</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1328030613%2FProperties%2F1745091852"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">var </span><a href="is-loading.html">isLoading</a><span class="token operator">: </span><span data-unresolved-link="/&amp;lt;Error class: unknown class&amp;gt;///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span></div><div class="brief "><p class="paragraph">Indicador d'estat de càrrega per a operacions asíncrones. S'estableix a <code class="lang-kotlin">true</code> durant la recuperació de dades del servidor per permetre que la interfície d'usuari mostri indicadors de progrés.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-236855985%2FProperties%2F1745091852" anchor-label="products" id="-236855985%2FProperties%2F1745091852" data-filterable-set=":app:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/main" data-filterable-set=":app:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="products.html"><span><span>products</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-236855985%2FProperties%2F1745091852"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">var </span><a href="products.html">products</a><span class="token operator">: </span><span data-unresolved-link="/&amp;lt;Error class: unknown class&amp;gt;///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span></div><div class="brief "><p class="paragraph">Llista reactiva de productes <a href="../../com.alexsotocepas.coffriend.data/-product/index.html">Product</a> disponibles al catàleg. S'actualitza automàticament un cop finalitza la petició a <a href="load-products.html">loadProducts</a>.</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -125,7 +155,22 @@
       </div>
       <div data-togglable="FUNCTION">
         <h2 class="">Functions</h2>
-        <div class="table"><a data-name="1041771261%2FFunctions%2F1745091852" anchor-label="logout" id="1041771261%2FFunctions%2F1745091852" data-filterable-set=":app:dokkaHtml/main"></a>
+        <div class="table"><a data-name="-459267575%2FFunctions%2F1745091852" anchor-label="loadProducts" id="-459267575%2FFunctions%2F1745091852" data-filterable-set=":app:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/main" data-filterable-set=":app:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="load-products.html"><span>load</span><wbr></wbr><span><span>Products</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-459267575%2FFunctions%2F1745091852"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="load-products.html"><span class="token function">loadProducts</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Recupera el llistat de productes des del servidor. L'operació es realitza en el fil Dispatchers.IO per evitar bloquejar la UI. Un cop obtinguts els resultats mitjançant el controlador de comunicacions, s'actualitza l'estat de <a href="products.html">products</a> al fil principal.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1041771261%2FFunctions%2F1745091852" anchor-label="logout" id="1041771261%2FFunctions%2F1745091852" data-filterable-set=":app:dokkaHtml/main"></a>
           <div class="table-row" data-filterable-current=":app:dokkaHtml/main" data-filterable-set=":app:dokkaHtml/main">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
@@ -135,7 +180,7 @@
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="logout.html"><span class="token function">logout</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">onSuccess<span class="token operator">: </span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html">Unit</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Realitza el procés de tancament de sessió de l'usuari. L'operació es divideix en dues fases: una crida de xarxa en el fil IO i una actualització de la interfície d'usuari en el fil principal.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="logout.html"><span class="token function">logout</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">onSuccess<span class="token operator">: </span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html">Unit</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Realitza el procés de tancament de sessió de l'usuari. L'operació es divideix en dues fases: una crida de xarxa en el fil Dispatchers.IO per invalidar el token al servidor i una neteja de dades locals mitjançant <a href="../../com.alexsotocepas.coffriend.data/-user/-companion/logout.html">User.logout</a>.</p></div></div></div>
                 </div>
               </div>
             </div>

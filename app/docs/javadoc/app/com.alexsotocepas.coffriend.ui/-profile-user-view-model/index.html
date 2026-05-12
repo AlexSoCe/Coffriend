@@ -65,7 +65,7 @@
   <div class="breadcrumbs"><a href="../../../index.html">app</a><span class="delimiter">/</span><a href="../index.html">com.alexsotocepas.coffriend.ui</a><span class="delimiter">/</span><span class="current">ProfileUserViewModel</span></div>
   <div class="cover ">
     <h1 class="cover"><span>Profile</span><wbr></wbr><span>User</span><wbr></wbr><span>View</span><wbr></wbr><span><span>Model</span></span></h1>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="index.html">ProfileUserViewModel</a></div><p class="paragraph">ViewModel encarregat de gestionar la lògica del perfil d'usuari i la baixa del sistema. Connecta la interfície d'usuari de perfil amb les operacions de xarxa protegides per garantir que les dades de l'usuari actual s'actualitzin o s'eliminin correctament.</p></div></div>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="index.html">ProfileUserViewModel</a></div><p class="paragraph">ViewModel encarregat de gestionar la lògica del perfil d'usuari i la baixa del sistema. Connecta la interfície d'usuari de perfil amb les operacions de xarxa protegides per garantir que les dades de l'usuari actual s'actualitzin o s'eliminin correctament mitjançant <a href="../../com.alexsotocepas.coffriend.communications/-server-requests/index.html">ServerRequests</a>.</p></div></div>
   </div>
   <div class="tabbedcontent">
     <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
@@ -91,17 +91,32 @@
       </div>
       <div data-togglable="PROPERTY">
         <h2 class="">Properties</h2>
-        <div class="table"><a data-name="743294063%2FProperties%2F1745091852" anchor-label="deleteSuccess" id="743294063%2FProperties%2F1745091852" data-filterable-set=":app:dokkaHtml/main"></a>
+        <div class="table"><a data-name="-1727398668%2FProperties%2F1745091852" anchor-label="errorMessage" id="-1727398668%2FProperties%2F1745091852" data-filterable-set=":app:dokkaHtml/main"></a>
           <div class="table-row" data-filterable-current=":app:dokkaHtml/main" data-filterable-set=":app:dokkaHtml/main">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
-                  <div><a href="delete-success.html"><span>delete</span><wbr></wbr><span><span>Success</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="743294063%2FProperties%2F1745091852"></span>
+                  <div><a href="error-message.html"><span>error</span><wbr></wbr><span><span>Message</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1727398668%2FProperties%2F1745091852"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="delete-success.html">deleteSuccess</a><span class="token operator">: </span><span data-unresolved-link="/&amp;lt;Error class: unknown class&amp;gt;///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">var </span><a href="error-message.html">errorMessage</a><span class="token operator">: </span><span data-unresolved-link="/&amp;lt;Error class: unknown class&amp;gt;///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span></div><div class="brief "><p class="paragraph">Missatge d'error reactiu que es mostra a la UI quan una operació falla. Si és <code class="lang-kotlin">null</code>, no hi ha cap error pendent de visualització.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1946688274%2FProperties%2F1745091852" anchor-label="isSuccess" id="-1946688274%2FProperties%2F1745091852" data-filterable-set=":app:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/main" data-filterable-set=":app:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-success.html"><span>is</span><wbr></wbr><span><span>Success</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1946688274%2FProperties%2F1745091852"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">var </span><a href="is-success.html">isSuccess</a><span class="token operator">: </span><span data-unresolved-link="/&amp;lt;Error class: unknown class&amp;gt;///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span></div><div class="brief "><p class="paragraph">Indicador d'èxit per a les operacions d'actualització de dades. Es posa a <code class="lang-kotlin">true</code> quan el servidor confirma que els canvis s'han aplicat correctament.</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -121,6 +136,21 @@
               <div>
                 <div class="title">
                   <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="delete-account.html"><span class="token function">deleteAccount</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">onDeleted<span class="token operator">: </span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html">Unit</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Executa el procés d'eliminació definitiva del compte de l'usuari actual. Aquesta funció recupera la ID de l'usuari des de l'objecte global <a href="../../com.alexsotocepas.coffriend.data/-user/index.html">User</a>, realitza la crida asíncrona a través de <a href="../../com.alexsotocepas.coffriend.communications/-server-requests/index.html">ServerRequests</a> en el context IO i, si l'operació és exitosa, executa el callback de navegació en el fil principal.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-501037392%2FFunctions%2F1745091852" anchor-label="updateEmail" id="-501037392%2FFunctions%2F1745091852" data-filterable-set=":app:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":app:dokkaHtml/main" data-filterable-set=":app:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="update-email.html"><span>update</span><wbr></wbr><span><span>Email</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-501037392%2FFunctions%2F1745091852"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":app:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="update-email.html"><span class="token function">updateEmail</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">nuevoEmail<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Sol·licita l'actualització de l'adreça de correu electrònic de l'usuari. Gestiona els estats de <a href="is-success.html">isSuccess</a> i <a href="error-message.html">errorMessage</a> basant-se en la resposta obtinguda de <a href="../../com.alexsotocepas.coffriend.communications/-server-requests/update-email.html">ServerRequests.updateEmail</a>. Si l'operació és satisfactòria, les dades de l'usuari en memòria s'actualitzen automàticament.</p></div></div></div>
                 </div>
               </div>
             </div>

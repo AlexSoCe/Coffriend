@@ -37,12 +37,13 @@ import com.alexsotocepas.coffriend.ui.theme.button_light_color
 /**
  * Pantalla de menú principal per als usuaris amb rol de client.
  * Aquesta vista permet als clients explorar el catàleg de productes (cafès),
- * afegir-los a la cistella i gestionar el seu perfil. Inclou una capçalera de
- * benvinguda, un llistat de productes amb scroll vertical i una barra de
- * navegació inferior amb icones per a les diferents seccions de l'app.
- * @param modifier Modificador per aplicar estils o dimensions des del contenidor pare.
- * @param navigate Funció lambda que s'executa per navegar enrere (normalment al Login) després de fer logout.
- * @param viewModel Instància del ViewModel que conté l'estat de l'usuari i la lògica de tancament de sessió.
+ * gestionar la seva cistella de la compra i navegar cap al seu perfil d'usuari.
+ * L'interfície presenta una capçalera amb el nom de l'usuari, una secció central
+ * dinàmica amb la llista de productes i una barra de navegació inferior.
+ * @param modifier Modificador de [Modifier] per ajustar l'estètica o el comportament del contenidor des del pare.
+ * @param navigate Funció lambda per gestionar la navegació cap a la pantalla de Login després de tancar sessió.
+ * @param profileNavigate Funció lambda que executa la navegació cap a la pantalla de perfil de l'usuari.
+ * @param viewModel Instància de [MenuUserViewModel] que gestiona l'estat dels productes i la sessió de l'usuari.
  */
 @Composable
 fun MenuUserScreen(
@@ -95,6 +96,7 @@ fun MenuUserScreen(
                 .padding(horizontal = 16.dp),
             verticalArrangement = Arrangement.spacedBy(10.dp)
         ) {
+            // Part per testejar
             repeat(15) { index ->
                 Row(
                     modifier = Modifier
@@ -170,14 +172,6 @@ fun MenuUserScreen(
                 colors = ButtonDefaults.buttonColors(containerColor = button_light_color),
                 modifier = Modifier.height(60.dp)
             ) {
-                Text("\uD83E\uDD47", fontSize = 48.sp)
-            }
-            Button(
-                onClick = {},
-                contentPadding = PaddingValues(horizontal = 0.dp, vertical = 0.dp),
-                colors = ButtonDefaults.buttonColors(containerColor = button_light_color),
-                modifier = Modifier.height(60.dp)
-            ) {
                 Text("\uD83D\uDED2", fontSize = 40.sp)
             }
             Button(
@@ -193,8 +187,9 @@ fun MenuUserScreen(
 }
 
 /**
- * Funció de previsualització per a l'editor de disseny.
- * Mostra la interfície del menú d'usuari amb el tema de l'aplicació.
+ * Funció de previsualització (Preview) per a l'editor de disseny d'Android Studio.
+ * Renderitza la interfície de [MenuUserScreen] utilitzant el tema personalitzat [CoffriendTheme]
+ * per visualitzar els canvis en temps real sense necessitat d'executar l'app al dispositiu.
  */
 @Preview
 @Composable
